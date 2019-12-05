@@ -26,7 +26,6 @@ const GET_INCIDENT = gql`
         description
         address
         occurred_at
-        updated_at
         media
         source
       }
@@ -69,7 +68,6 @@ const Incident = () => {
   } = data
   const imageUrl = incident.media ? incident.media.image_url : ''
   const occurredAt = moment(incident.occured_at).format('YYYY-MM-DD hh:mm')
-  const updatedAt = moment(incident.updated_at).format('YYYY-MM-DD hh:mm')
   const sourceUrl = incident.source ? incident.source.html_url : ''
   return (
     <Grid container spacing={2} direction="column">
@@ -105,10 +103,7 @@ const Incident = () => {
                 {incident.description}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                Stolen: {occurredAt}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                Reported: ${updatedAt}
+                Reported stolen {occurredAt} {incident.address}
               </Typography>
             </CardContent>
           </CardActionArea>

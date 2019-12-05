@@ -34,7 +34,6 @@ const GET_INCIDENTS = gql`
         description
         address
         occurred_at
-        updated_at
         media
       }
     }
