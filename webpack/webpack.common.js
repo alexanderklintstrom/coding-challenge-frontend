@@ -1,10 +1,10 @@
-const eslint = require('eslint');
-const webpack = require('webpack');
-const convert = require('koa-connect');
-const history = require('connect-history-api-fallback');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-const commonPaths = require('./paths');
+const eslint = require('eslint')
+const webpack = require('webpack')
+const convert = require('koa-connect')
+const history = require('connect-history-api-fallback')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+const commonPaths = require('./paths')
 
 module.exports = {
   entry: commonPaths.entryPath,
@@ -51,7 +51,7 @@ module.exports = {
   },
   serve: {
     add: app => {
-      app.use(convert(history()));
+      app.use(convert(history()))
     },
     content: commonPaths.entryPath,
     dev: {
@@ -71,5 +71,10 @@ module.exports = {
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'async',
     }),
+    new webpack.DefinePlugin({
+      'process.env.BIKEWISE_API_URL': JSON.stringify(
+        'https://bikewise.org:443/api/v2',
+      ),
+    }),
   ],
-};
+}
