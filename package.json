@@ -132,7 +132,7 @@
     "koa-connect": "2.0.1",
     "lint-staged": "9.5.0",
     "mini-css-extract-plugin": "0.8.0",
-    "node-sass": "4.13.0",
+    "node-sass": "4.14.1",
     "npm-check-updates": "3.2.2",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "prettier": "1.19.1",
